@@ -1,5 +1,5 @@
 print("Ryan Aday\nCar Vehicle Dynamics Optimizer\n")
-print("Version 1.0\n")
+print("Version 1.1: Added wheel graphics\n")
 
 print("""Optimizes front and rear suspension geometry 
 with the L-BFGS-B minimization algorithm
@@ -55,7 +55,9 @@ try:
     from scipy.optimize import minimize
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 except ImportError:
+    import sys
     sys.exit("""
         You need the numpy, scipy, and matplotlib libraries.
         To install these libraries, please enter:
@@ -263,7 +265,7 @@ optimized_sway_bar_stiffness = {
 }
 
 # Function to plot suspension geometry
-def plot_suspension(ax, hardpoints, title):
+def plot_suspension(ax, hardpoints, title, wheel_radius, wheel_width):
     # Front suspension
     ax.plot([hardpoints['front_UCA_inboard'][1], hardpoints['front_UCA_outboard'][1]],
             [hardpoints['front_UCA_inboard'][0], hardpoints['front_UCA_outboard'][0]],
@@ -296,6 +298,19 @@ def plot_suspension(ax, hardpoints, title):
             [hardpoints['rear_sway_bar'][0], hardpoints['rear_UCA_outboard'][0]],
             [hardpoints['rear_sway_bar'][2], hardpoints['rear_UCA_outboard'][2]], 'purple', label='Rear Sway Bar')
     
+    # Draw wheels as wireframe cylinders in the xz plane
+    for wheel_center in ['front_wheel_center', 'rear_wheel_center']:
+        theta = np.linspace(0, 2 * np.pi, 100)
+        z = np.linspace(-wheel_width / 2, wheel_width / 2, 2)
+        theta_grid, x_grid = np.meshgrid(theta, z)
+        y_grid = wheel_radius * np.cos(theta_grid)
+        z_grid = wheel_radius * np.sin(theta_grid)
+        x_grid += hardpoints[wheel_center][1]
+        y_grid += hardpoints[wheel_center][0]
+        z_grid += hardpoints[wheel_center][2]
+
+        ax.plot_wireframe(x_grid, y_grid, z_grid, color='grey')
+
     ax.set_title(title)
     ax.set_xlabel('Y')
     ax.set_ylabel('X')
@@ -323,10 +338,10 @@ for key, value in optimized_sway_bar_stiffness.items():
 fig = plt.figure(figsize=(12, 6))
 
 ax1 = fig.add_subplot(121, projection='3d')
-plot_suspension(ax1, initial_hardpoints, 'Initial Suspension Geometry')
+plot_suspension(ax1, initial_hardpoints, 'Initial Suspension Geometry', wheel_radius, wheel_width)
 
 ax2 = fig.add_subplot(122, projection='3d')
-plot_suspension(ax2, optimized_hardpoints, 'Optimized Suspension Geometry')
+plot_suspension(ax2, optimized_hardpoints, 'Optimized Suspension Geometry', wheel_radius, wheel_width)
 
 plt.tight_layout()
 plt.show()
