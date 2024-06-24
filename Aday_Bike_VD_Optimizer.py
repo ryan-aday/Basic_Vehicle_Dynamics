@@ -23,7 +23,6 @@ material_properties (constants):
 
 # Optimized variables:
 Tube dimensions (outer diameter, thickness) in mm
-tube_dimensions
     seat_tube
     top_tube
     head_tube

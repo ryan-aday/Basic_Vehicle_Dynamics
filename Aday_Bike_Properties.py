@@ -22,7 +22,6 @@ material_properties (constants):
     fatigue_strength_exponent # dimensionless for b
 
 Tube dimensions (outer diameter, thickness) in mm
-tube_dimensions
     seat_tube
     top_tube
     head_tube
