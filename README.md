@@ -4,6 +4,8 @@ Plotters and optimizers for vehicle dynamics.
 # Car Vehicle Dymanics and Optimizer
 Optimizes front and rear suspension geometry with the L-BFGS-B minimization algorithm and provides a plot to demonstrate the differences between the initial and optimized hardpoints.
 
+![Car Suspension Optimizer](https://github.com/ryan-aday/Basic_Vehicle_Dynamics/assets/33794562/42594bb2-d264-48d5-bf0c-4a2228561598)
+
 Initial Hardpoints:
  - UCA_inboard (average location of mounting points)
  - UCA_outboard (average location of mounting points)
@@ -50,6 +52,8 @@ Requires libraries:
 Provides optimized tube dimensions and angles for a standard bike frame while maximizing torsional rigidity and fatigue life (Basquin's Law). 
 Also prints out tube lengths, torsional rigidity, and fatigue life for individual tubes and for the bike overall.
 NOTE: This uses material properties for 4130 steel. Modify to suit your own needs.
+
+![Bicycle Optimizer](https://github.com/ryan-aday/Basic_Vehicle_Dynamics/assets/33794562/aea4d195-83c8-4a1b-b332-747857bbbcc8)
 
 Provide:
  - Parameters (constants):
