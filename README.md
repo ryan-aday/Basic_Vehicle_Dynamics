@@ -5,6 +5,7 @@ Plotters and optimizers for vehicle dynamics.
 Optimizes front and rear suspension geometry with the L-BFGS-B minimization algorithm and provides a plot to demonstrate the differences between the initial and optimized hardpoints.
 
 ![Car Suspension Optimizer](https://github.com/ryan-aday/Basic_Vehicle_Dynamics/assets/33794562/42594bb2-d264-48d5-bf0c-4a2228561598)
+![Car Suspension Dynamics Plots](https://github.com/ryan-aday/Basic_Vehicle_Dynamics/assets/33794562/69d65ea6-3675-4de4-8a9c-9b440401fcb8)
 
 Initial Hardpoints:
  - UCA_inboard (average location of mounting points)
