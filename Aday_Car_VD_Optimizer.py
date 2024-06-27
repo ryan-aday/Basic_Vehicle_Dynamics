@@ -48,6 +48,7 @@ Requires libraries:
     numpy
     scipy
     matplotlib   
+    sys
     \n""")
 
 try:
@@ -56,6 +57,7 @@ try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D
     from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+    import sys
 except ImportError:
     import sys
     sys.exit("""

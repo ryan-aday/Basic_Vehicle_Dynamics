@@ -43,6 +43,7 @@ Requires libraries:
     matplotlib   
     mpl_toolkits
     scipy
+    sys
     \n""")
 
 try:
@@ -50,6 +51,7 @@ try:
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D, art3d
     from scipy.optimize import differential_evolution
+    import sys
 except ImportError:
     sys.exit("""
         You need the numpy, mpl_toolkits, scipy, and matplotlib libraries.

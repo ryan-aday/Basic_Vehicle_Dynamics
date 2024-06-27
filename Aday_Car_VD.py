@@ -44,11 +44,13 @@ Vehicle Dynamics Properties Graphed:
 Requires libraries:
     numpy
     matplotlib   
+    sys
     \n""")
 
 try:
     import numpy as np
     import matplotlib.pyplot as plt
+    import sys
 except ImportError:
     sys.exit("""
         You need the numpy and matplotlib libraries.

@@ -41,12 +41,14 @@ Requires libraries:
     numpy
     matplotlib   
     mpl_toolkits
+    sys
     \n""")
 
 try:
     import numpy as np
     import matplotlib.pyplot as plt
     from mpl_toolkits.mplot3d import Axes3D, art3d
+    import sys
 except ImportError:
     sys.exit("""
         You need the numpy, mpl_toolkits, scipy, and matplotlib libraries.
